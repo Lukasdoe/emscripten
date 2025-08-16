@@ -336,7 +336,7 @@ def should_run_binaryen_optimizer():
   # great majority of the work; not running the binaryen optimizer in that case
   # keeps -O1 mostly-optimized while compiling quickly and without rewriting
   # DWARF etc.
-  return settings.OPT_LEVEL >= 2
+  return False
 
 
 def get_binaryen_passes():
