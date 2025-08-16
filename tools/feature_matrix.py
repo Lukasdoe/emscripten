@@ -34,6 +34,7 @@ class Feature(IntEnum):
   NON_TRAPPING_FPTOINT = auto()
   SIGN_EXT = auto()
   BULK_MEMORY = auto()
+  BRANCH_HINTING = auto()
   MUTABLE_GLOBALS = auto()
   JS_BIGINT_INTEGRATION = auto()
   THREADS = auto()
@@ -64,6 +65,12 @@ min_browser_versions = {
     'firefox': 79,
     'safari': 150000,
     'node': 130000,
+  },
+  Feature.BRANCH_HINTING: {
+    'chrome': 137,
+    'firefox': UNSUPPORTED,
+    'safari': 160000,
+    'node': UNSUPPORTED,
   },
   Feature.MUTABLE_GLOBALS: {
     'chrome': 74,

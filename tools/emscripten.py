@@ -124,6 +124,10 @@ def update_settings_glue(wasm_file, metadata, base_metadata):
   if settings.MEMORY64:
     assert '--enable-memory64' in settings.BINARYEN_FEATURES
 
+  # this feature is enabled by default in binaryen (no feature flag available)
+  if '--enable-branch-hinting' in settings.BINARYEN_FEATURES:
+    settings.BINARYEN_FEATURES.remove('--enable-branch-hinting')
+
   settings.HAS_MAIN = bool(settings.MAIN_MODULE) or settings.PROXY_TO_PTHREAD or settings.STANDALONE_WASM or 'main' in settings.WASM_EXPORTS or '__main_argc_argv' in settings.WASM_EXPORTS
   if settings.HAS_MAIN and not settings.MINIMAL_RUNTIME:
     # Dependencies of `callMain`
